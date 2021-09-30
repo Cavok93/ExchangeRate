@@ -45,5 +45,19 @@
 ## 앱스토어 링크 
  + https://apps.apple.com/kr/app/%EC%9D%B4%EC%A7%80-%ED%99%98%EC%9C%A8/id1582795081
 
-## 느
-한국수출입은행에 의존한 환율정보이다보니 비영업일이나 휴뮤일에 대한 변수들을 무시할 수 없었다. 만약 이러한 문제들로 인해 네트워크 요청에 실패한다면, 전날의 환율정보를 다시 요청하거나 경고창을 띄우는 것으로 처리했다.
+## 느낀점
+한국수출입은행에 의존한 환율정보이다보니 비영업일이나 휴뮤일에 대한 변수들을 무시할 수 없었다. 만약 이러한 문제들로 인해 네트워크 요청이 실패한다면, 전날의 환율정보를 다시 요청하거나 경고창을 띄우는 것으로 구성하였다.
+``` swift
+guard let result = exchangeList.first?.result else {
+                    strongSelf.reqeustCount += 1
+                    let date = Date(timeIntervalSinceNow: -(strongSelf.reqeustCount.day))
+                    strongSelf.requestPreviousCurrencyData(date)
+                    return
+                }
+                guard !(2...4).contains(result) else {
+                    DispatchQueue.main.async {
+                        strongSelf.showAlert(title: "안내", message: "네트워크 오류로 인해 정상적인 업데이트가 불가능합니다.")
+                    }
+                    return
+                }
+```
