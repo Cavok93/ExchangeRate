@@ -45,8 +45,3 @@
 ## 앱스토어 링크 
  + https://apps.apple.com/kr/app/easy-diet/id1584944045
 
-
-#
-
-생각할 
-생각할 변수들이 
