@@ -43,5 +43,5 @@
 
 
 ## 앱스토어 링크 
- + https://apps.apple.com/kr/app/easy-diet/id1584944045
+ + https://apps.apple.com/kr/app/%EC%9D%B4%EC%A7%80-%ED%99%98%EC%9C%A8/id1582795081
 
